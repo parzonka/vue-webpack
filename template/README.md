@@ -14,8 +14,11 @@ npm run dev
 # build for production with minification
 npm run build
 
-# run unit tests
+# run unit tests (single run)
 npm test
+
+ run unit tests (continuous integration)
+npm ci
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).

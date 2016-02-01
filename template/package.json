@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "rimraf dist && webpack --progress --hide-modules --config build/webpack.prod.conf.js",
-    "test": "karma start build/karma.conf.js --single-run"
+    "test": "karma start build/karma.conf.js --single-run",
+    "ci": "karma start build/karma.conf.js"
   },
   "dependencies": {
     "vue": "^1.0.15"
