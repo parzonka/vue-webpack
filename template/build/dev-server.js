@@ -1,9 +1,13 @@
 var express = require('express')
 var webpack = require('webpack')
 var config = require('./webpack.dev.conf')
+var proxy = require('http-proxy-middleware')
 
 var app = express()
 var compiler = webpack(config)
+
+// map calls to /api/* to http://localhost:8080/api/*
+app.use(proxy('/api', {target: 'http://localhost:8080'}))
 
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
@@ -21,10 +25,10 @@ app.use(require('webpack-dev-middleware')(compiler, {
 // compilation error display
 app.use(require('webpack-hot-middleware')(compiler))
 
-app.listen(8080, 'localhost', function (err) {
+app.listen(3000, 'localhost', function (err) {
   if (err) {
     console.log(err)
     return
   }
-  console.log('Listening at http://localhost:8080')
+  console.log('Listening at http://localhost:3000')
 })
