@@ -7,17 +7,13 @@
     },
     "description": {
       "type": "string",
-      "required": true,
+      "required": false,
       "label": "Project description",
-      "default": "A Vue.js project"
+      "default": ""
     },
     "author": {
       "type": "string",
       "label": "Author"
-    },
-    "private": {
-      "type": "boolean",
-      "default": true
     }
   }
 }
