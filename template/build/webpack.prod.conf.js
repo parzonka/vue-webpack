@@ -46,11 +46,19 @@ config.plugins = (config.plugins || []).concat([
   // extract css into its own file
   new ExtractTextPlugin('[name].[contenthash].css'),
   // generate dist index.html with correct asset hash for caching.
-  // you can customize output by editing /build/index.template.html
+  // you can customize output by editing /src/index.html
   // see https://github.com/ampedandwired/html-webpack-plugin
   new HtmlWebpackPlugin({
     filename: '../index.html',
-    template: 'src/index.html'
+    template: 'src/index.html',
+    inject: true,
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true,
+      removeAttributeQuotes: true
+      // more options:
+      // https://github.com/kangax/html-minifier#options-quick-reference
+    }
   })
 ])
 
